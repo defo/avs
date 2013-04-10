@@ -32,12 +32,11 @@ public class TCPServer {
 		ServerSocket sSocket = new ServerSocket(PORT_NUMBER);
 		sSocket.setSoTimeout(TIMEOUT);
 
-		while (true) {
-			System.out.println("*** WAITING FOR SOCKET BINDING ***");
-			Socket socket = sSocket.accept();
-			System.out.println("*** SOCKET BINDING FROM + "
-					+ socket.getRemoteSocketAddress() + " ***");
-			new ServerThread(socket);
-		}
+		System.out.println("*** WAITING FOR SOCKET BINDING ***");
+		Socket socket = sSocket.accept();
+		System.out.println("*** SOCKET BINDING FROM + "
+				+ socket.getRemoteSocketAddress() + " ***");
+		new ServerThread(socket);
+		System.out.println("*** DONE ***");
 	}
 }

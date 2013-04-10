@@ -29,7 +29,6 @@ public class ServerThread extends Thread {
 		finish();
 	}
 
-
 	/** 
 	 * Serverthrad wird gestartet. 
 	 * Empfangene Zahl um 1 inkrementiert und es wird eine 
@@ -57,8 +56,7 @@ public class ServerThread extends Thread {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	/**
 	 * Socket wird geschlossen 
 	 */
@@ -78,12 +76,10 @@ public class ServerThread extends Thread {
 	private String getRandomString() {
 		Random r = new Random();
 		String randomString = "";
-		do {
-			for (int i = 0; i < r.nextInt(20); i++) {
-				int charInt = r.nextInt(24);
-				randomString += (char) (97 + charInt);
-			}
-		} while (randomString.length() == 0);
+		for (int i = 0; i < (1 + r.nextInt(19)); i++) {
+			int charInt = r.nextInt(24);
+			randomString += (char) (97 + charInt);
+		}
 		return randomString;
 	}
 }
