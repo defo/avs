@@ -1,13 +1,9 @@
 package de.htw.avs.server;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author: Sven Willrich, 534022
@@ -18,11 +14,12 @@ import java.util.Random;
  */
 
 public class TCPServer {
-	
+
 	public static final int PORT_NUMBER = 4444;
-	public static final int TIMEOUT = 60000;
-	
+	public static final int TIMEOUT = 60000*10;
+
 	public static void main(String[] args) {
+		System.out.println("*** SERVER STARTS ***");
 		TCPServer server = new TCPServer();
 		try {
 			server.run();
@@ -30,41 +27,17 @@ public class TCPServer {
 			e.printStackTrace();
 		}
 	}
-	
-	private void run() throws Exception {
-		ServerSocket sSocket = new ServerSocket(PORT_NUMBER+3);
-		sSocket.setSoTimeout(TIMEOUT);
-		
-		while (true) {
-			Socket socket = sSocket.accept();
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-					socket.getInputStream()));
-			PrintWriter writer = new PrintWriter(new OutputStreamWriter(
-					socket.getOutputStream()));
-			
-			String clientData = "";
-			
-			while ((clientData = br.readLine()) != null) {
-				String toClient = getRandomString() + clientData;
-				writer.write(toClient);
-				System.out.println(toClient);
-			}
-			socket.close(); br.close(); writer.close();
-		}
-	}
 
-	/**
-	 * Sendet eine zufaellige Zeichenkette mit einer 
-	 * Laenge zwischen 1 - 20 Zeichen zurueck
-	 * gefolgt von einer Zahl z + 1
-	 */
-	private String getRandomString() {
-		Random r = new Random();
-		String randomString = "";
-		for (int i = 0; i < r.nextInt(20); i++) {
-			int charInt = r.nextInt(24);
-			randomString += (char) (97 + charInt);
+	private void run() throws Exception {
+		ServerSocket sSocket = new ServerSocket(PORT_NUMBER);
+		sSocket.setSoTimeout(TIMEOUT);
+
+		while (true) {
+			System.out.println("*** WAITING FOR SOCKET BINDING ***");
+			Socket socket = sSocket.accept();
+			System.out.println("*** SOCKET BINDING FROM + "
+					+ socket.getRemoteSocketAddress() + " ***");
+			new ServerThread(socket);
 		}
-		return randomString;
 	}
 }
