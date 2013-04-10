@@ -16,26 +16,30 @@ import de.htw.avs.server.TCPServer;
  */
 
 public class TCPClient {
-	public static final String HOST_NAME = "141.45.192.55";
+	public static final String HOST_NAME = "192.168.0.2";
 
 	public static void main(String[] args) {
 		try {
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Enter a number:");
 			int userEntry = sc.nextInt();
-			
+			sc.close();
+
 			Socket socket = new Socket(HOST_NAME, TCPServer.PORT_NUMBER);
 			PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
 			BufferedReader reader = new BufferedReader(new InputStreamReader(
 					socket.getInputStream()));
-			
-			writer.print(userEntry);
-			writer.flush();
+
+			writer.println(userEntry);
 			System.out.println("Client: " + userEntry);
 			System.out.println("Server: " + reader.readLine());
 			
-			reader.close(); writer.close(); socket.close(); sc.close();
+			writer.close();
+			reader.close();
+			socket.close();
 			
+			System.out.println("*** DONE ****");
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
