@@ -8,7 +8,7 @@ import java.net.Socket;
 
 /**
  * @author: Sven Willrich, 534022
- * @author: ...
+ * @author: ...defo
  * Date: 09.04.2013
  * Classname: TCPClient.java
  * Veranstaltung: AVS Uebung
