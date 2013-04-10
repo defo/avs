@@ -3,6 +3,8 @@ package de.htw.avs.server;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import de.htw.avs.util.Log;
+
 /**
  * @author: Sven Willrich, 534022
  * @author: defo
@@ -17,7 +19,7 @@ public class TCPServer {
 	public static final int TIMEOUT = 60000 * 10;
 
 	public static void main(String[] args) {
-		System.out.println("*** SERVER STARTS ***");
+		Log.write("SERVER STARTS");
 		try {
 			new TCPServer();
 		} catch (Exception e) {
@@ -32,11 +34,10 @@ public class TCPServer {
 		ServerSocket sSocket = new ServerSocket(PORT_NUMBER);
 		sSocket.setSoTimeout(TIMEOUT);
 
-		System.out.println("*** WAITING FOR SOCKET BINDING ***");
+		Log.write("WAITING FOR SOCKET BINDING");
 		Socket socket = sSocket.accept();
-		System.out.println("*** SOCKET BINDING FROM + "
-				+ socket.getRemoteSocketAddress() + " ***");
+		Log.write("SOCKET BINDING FROM " + socket.getRemoteSocketAddress());
 		new ServerThread(socket);
-		System.out.println("*** DONE ***");
+		Log.write("DONE");
 	}
 }

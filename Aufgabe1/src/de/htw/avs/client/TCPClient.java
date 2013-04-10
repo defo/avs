@@ -7,6 +7,7 @@ import java.net.Socket;
 import java.util.Scanner;
 
 import de.htw.avs.server.TCPServer;
+import de.htw.avs.util.Log;
 
 /**
  * @author: Sven Willrich, 534022
@@ -19,7 +20,6 @@ import de.htw.avs.server.TCPServer;
 public class TCPClient {
 	public static final String HOST_NAME = "192.168.0.2";
 
-	
 	/**
 	 * Instanziiert ein TCPClient-Object
 	 */
@@ -69,6 +69,6 @@ public class TCPClient {
 		reader.close();
 		socket.close();
 
-		System.out.println("*** DONE ****");
+		Log.write("DONE");
 	}
 }
