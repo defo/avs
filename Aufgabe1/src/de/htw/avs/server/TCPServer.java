@@ -20,6 +20,7 @@ import java.util.Random;
 public class TCPServer {
 	
 	public static final int PORT_NUMBER = 4444;
+	public static final int TIMEOUT = 60000;
 	
 	public static void main(String[] args) {
 		TCPServer server = new TCPServer();
@@ -31,7 +32,8 @@ public class TCPServer {
 	}
 	
 	private void run() throws Exception {
-		ServerSocket sSocket = new ServerSocket(PORT_NUMBER);
+		ServerSocket sSocket = new ServerSocket(PORT_NUMBER+3);
+		sSocket.setSoTimeout(TIMEOUT);
 		
 		while (true) {
 			Socket socket = sSocket.accept();
@@ -39,12 +41,13 @@ public class TCPServer {
 					socket.getInputStream()));
 			PrintWriter writer = new PrintWriter(new OutputStreamWriter(
 					socket.getOutputStream()));
+			
 			String clientData = "";
+			
 			while ((clientData = br.readLine()) != null) {
 				String toClient = getRandomString() + clientData;
 				writer.write(toClient);
 				System.out.println(toClient);
-				sSocket.close();
 			}
 			socket.close(); br.close(); writer.close();
 		}

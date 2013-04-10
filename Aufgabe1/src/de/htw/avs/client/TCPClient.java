@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
+import de.htw.avs.server.TCPServer;
+
 /**
  * @author: Sven Willrich, 534022
  * @author: ...defo Date: 09.04.2013 Classname: TCPClient.java Veranstaltung:
@@ -14,8 +16,7 @@ import java.util.Scanner;
  */
 
 public class TCPClient {
-	public static final int PORT_NUMBER = 4444;
-	public static final String HOST_NAME = "localhost";
+	public static final String HOST_NAME = "141.45.192.55";
 
 	public static void main(String[] args) {
 		try {
@@ -23,12 +24,13 @@ public class TCPClient {
 			System.out.println("Enter a number:");
 			int userEntry = sc.nextInt();
 			
-			Socket socket = new Socket(HOST_NAME, PORT_NUMBER);
+			Socket socket = new Socket(HOST_NAME, TCPServer.PORT_NUMBER);
 			PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
 			BufferedReader reader = new BufferedReader(new InputStreamReader(
 					socket.getInputStream()));
 			
-			writer.write(userEntry);
+			writer.print(userEntry);
+			writer.flush();
 			System.out.println("Client: " + userEntry);
 			System.out.println("Server: " + reader.readLine());
 			
