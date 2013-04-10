@@ -7,18 +7,19 @@ import java.util.Date;
 import java.util.Random;
 
 import de.htw.avs.server.UDPServer;
+import de.htw.avs.util.Log;
 
 /**
  * @author: Sven Willrich, 534022
  * @author: ...
  * Date: 10.04.2013
  * Classname: UDPClient.java
- * Veranstaltung: AVS Übung
+ * Veranstaltung: AVS ï¿½bung
  */
 
 public class UDPClient extends Thread {
 
-	private final static String HOSTADDR = "192.168.0.4";
+	private final static String HOSTADDR = "192.168.0.2";
 	
 	public static void main(String[] args) {
 		new UDPClient().run();
@@ -29,6 +30,7 @@ public class UDPClient extends Thread {
 	 */
 	@Override
 	public void run() {
+		Log.write("START CLIENT");
 		try {
 			DatagramSocket socket = new DatagramSocket();
 			byte[] buf = new byte[265];
@@ -39,6 +41,7 @@ public class UDPClient extends Thread {
 				DatagramPacket packet = new DatagramPacket(buf, buf.length,
 						InetAddress.getByName(HOSTADDR), UDPServer.HOSTPORT);
 				socket.send(packet);
+				Log.write("SENDED DATA + " + data);
 				Thread.sleep(1000 * 5);
 			}
 		} catch (Exception e) {
