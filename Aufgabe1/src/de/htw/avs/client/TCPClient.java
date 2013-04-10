@@ -1,6 +1,9 @@
 package de.htw.avs.client;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Socket;
 
 /**
@@ -8,7 +11,7 @@ import java.net.Socket;
  * @author: ...
  * Date: 09.04.2013
  * Classname: TCPClient.java
- * Veranstaltung: AVS Übung
+ * Veranstaltung: AVS Uebung
  */
 
 public class TCPClient {
@@ -17,6 +20,8 @@ public class TCPClient {
 	
 	public static void main(String[] args) throws IOException {
 		Socket socket = new Socket(HOST_NAME, PORT_NUMBER);
+		PrintWriter writer = new PrintWriter(socket.getOutputStream());
+		BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 		
 	}
 }

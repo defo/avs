@@ -7,7 +7,7 @@ import java.util.Random;
  * @author: ...
  * Date: 09.04.2013
  * Classname: TCPServer.java
- * Veranstaltung: AVS Übung
+ * Veranstaltung: AVS Uebung
  */
 
 public class TCPServer {
@@ -17,14 +17,14 @@ public class TCPServer {
 	}
 
 	/**
-	 * Sendet eine zufällige Zeichenkette mit einer 
-	 * Länge zwischen 1 - 20 Zeichen zurück
+	 * Sendet eine zufaellige Zeichenkette mit einer 
+	 * Laenge zwischen 1 - 20 Zeichen zurueck
 	 * gefolgt von einer Zahl z + 1
 	 */
 	private String getRandomString() {
 		Random r = new Random();
 		String randomString = "";
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < r.nextInt(20); i++) {
 			int charInt = r.nextInt(24);
 			randomString += (char) (97 + charInt);
 		}
