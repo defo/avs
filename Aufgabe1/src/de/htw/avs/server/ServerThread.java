@@ -10,7 +10,7 @@ import java.util.Random;
 
 /**
  * @author: Sven Willrich, 534022
- * @author: ...
+ * @author: defo
  * Date: 10.04.2013
  * Classname: ServerThread.java
  * Veranstaltung: AVS Übung
@@ -21,7 +21,7 @@ public class ServerThread extends Thread {
 	private Socket socket;
 
 	/**
-	 * 
+	 * Startet den Thread
 	 */
 	public ServerThread(Socket socket) {
 		this.socket = socket;
@@ -29,8 +29,12 @@ public class ServerThread extends Thread {
 		finish();
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Thread#run()
+
+	/** 
+	 * Serverthrad wird gestartet. 
+	 * Empfangene Zahl um 1 inkrementiert und es wird eine 
+	 * zufällige Zeichenkette vorangestellt. 
+	 * Als String wird es an den Client zurückgeschickt.
 	 */
 	@Override
 	public void run() {
@@ -54,6 +58,10 @@ public class ServerThread extends Thread {
 		}
 	}
 	
+	
+	/**
+	 * Socket wird geschlossen 
+	 */
 	public void finish() {
 		try {
 			socket.close();
