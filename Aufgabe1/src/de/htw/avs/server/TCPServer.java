@@ -1,5 +1,12 @@
 package de.htw.avs.server;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.Random;
 
 /**
@@ -11,9 +18,36 @@ import java.util.Random;
  */
 
 public class TCPServer {
+	
+	public static final int PORT_NUMBER = 4444;
+	
 	public static void main(String[] args) {
-		TCPServer s = new TCPServer();
-		System.out.println(s.getRandomString());
+		TCPServer server = new TCPServer();
+		try {
+			server.run();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void run() throws Exception {
+		ServerSocket sSocket = new ServerSocket(PORT_NUMBER);
+		
+		while (true) {
+			Socket socket = sSocket.accept();
+			BufferedReader br = new BufferedReader(new InputStreamReader(
+					socket.getInputStream()));
+			PrintWriter writer = new PrintWriter(new OutputStreamWriter(
+					socket.getOutputStream()));
+			String clientData = "";
+			while ((clientData = br.readLine()) != null) {
+				String toClient = getRandomString() + clientData;
+				writer.write(toClient);
+				System.out.println(toClient);
+				sSocket.close();
+			}
+			socket.close(); br.close(); writer.close();
+		}
 	}
 
 	/**
