@@ -15,7 +15,7 @@ import de.htw.avs.util.Log;
 
 public class TCPServer {
 
-	public static final int PORT_NUMBER = 4444;
+	public static final int TCP_PORT_NUMBER = 4444;
 	public static final int TIMEOUT = 60000 * 10;
 
 	public static void main(String[] args) {
@@ -31,13 +31,15 @@ public class TCPServer {
 	 * Startet den Server und akzeptiert endlos neue Clients
 	 */
 	public TCPServer() throws Exception {
-		ServerSocket sSocket = new ServerSocket(PORT_NUMBER);
+		ServerSocket sSocket = new ServerSocket(TCP_PORT_NUMBER);
 		sSocket.setSoTimeout(TIMEOUT);
 
-		Log.write("WAITING FOR SOCKET BINDING");
-		Socket socket = sSocket.accept();
-		Log.write("SOCKET BINDING FROM " + socket.getRemoteSocketAddress());
-		new ServerThread(socket);
-		Log.write("DONE");
+		while (true) {
+			Log.write("WAITING FOR SOCKET BINDING");
+			Socket socket = sSocket.accept();
+			Log.write("SOCKET BINDING FROM " + socket.getRemoteSocketAddress());
+			new ServerThread(socket);
+			Log.write("DONE");
+		}
 	}
 }

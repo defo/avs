@@ -41,22 +41,10 @@ public class TCPClient {
 	}
 
 	/**
-	 * Fordert den Nutzer zur Eingabe auf und
-	 * gibt diese zurück
-	 */
-	private int getUserEntry() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter a number:");
-		int userEntry = sc.nextInt();
-		sc.close();
-		return userEntry;
-	}
-
-	/**
 	 * Schickt dem Server eine Nachricht
 	 */
-	private void sendMessage(String msg) throws Exception {
-		Socket socket = new Socket(HOST_NAME, TCPServer.PORT_NUMBER);
+	public void sendMessage(String msg) throws Exception {
+		Socket socket = new Socket(HOST_NAME, TCPServer.TCP_PORT_NUMBER);
 		PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				socket.getInputStream()));
@@ -70,5 +58,17 @@ public class TCPClient {
 		socket.close();
 
 		Log.write("DONE");
+	}
+	
+	/**
+	 * Fordert den Nutzer zur Eingabe auf und
+	 * gibt diese zurück
+	 */
+	private int getUserEntry() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a number:");
+		int userEntry = sc.nextInt();
+		sc.close();
+		return userEntry;
 	}
 }
