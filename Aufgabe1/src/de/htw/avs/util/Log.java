@@ -2,10 +2,10 @@ package de.htw.avs.util;
 
 /**
  * @author: Sven Willrich, 534022
- * @author: ...
+ * @author: defo
  * Date: 10.04.2013
  * Classname: Log.java
- * Veranstaltung: AVS Übung
+ * Veranstaltung: AVS Exercise
  */
 
 public class Log {

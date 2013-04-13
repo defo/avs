@@ -10,7 +10,7 @@ import de.htw.avs.util.Log;
  * @author: defo
  * Date: 09.04.2013
  * Classname: TCPServer.java
- * Veranstaltung: AVS Uebung
+ * Veranstaltung: AVS Exercise
  */
 
 public class TCPServer {
@@ -29,6 +29,7 @@ public class TCPServer {
 
 	/**
 	 * Startet den Server und akzeptiert endlos neue Clients
+	 * Started the client and accept new clients without any border
 	 */
 	public TCPServer() throws Exception {
 		ServerSocket sSocket = new ServerSocket(TCP_PORT_NUMBER);

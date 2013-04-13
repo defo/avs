@@ -11,10 +11,10 @@ import de.htw.avs.util.Log;
 
 /**
  * @author: Sven Willrich, 534022
- * @author: ...
+ * @author: defo
  * Date: 10.04.2013
  * Classname: UDPClient.java
- * Veranstaltung: AVS �bung
+ * Veranstaltung: AVS Exercise
  */
 
 public class UDPClient extends Thread {
@@ -25,8 +25,9 @@ public class UDPClient extends Thread {
 		new UDPClient().run();
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Thread#run()
+	/**
+	 * Send messages in five seconds intervals to the server
+	 * The data is one random integer + the current data 
 	 */
 	@Override
 	public void run() {

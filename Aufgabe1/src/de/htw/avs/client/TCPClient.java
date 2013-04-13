@@ -14,14 +14,14 @@ import de.htw.avs.util.Log;
  * @author: defo 
  * Date: 09.04.2013 
  * Classname: TCPClient.java 
- * Veranstaltung: AVS Uebung
+ * Veranstaltung: AVS Exercise
  */
 
 public class TCPClient {
 	public static final String HOST_NAME = "192.168.0.2";
 
 	/**
-	 * Instanziiert ein TCPClient-Object
+	 * Instantiated a TCPClient object
 	 */
 	public static void main(String[] args) {
 		try {
@@ -32,8 +32,8 @@ public class TCPClient {
 	}
 
 	/**
-	 * Empfängt Nutzereingabe und sendet 
-	 * eine Nachricht an den Server
+	 * Recieved user inputs and 
+	 * send a message to the server
 	 */
 	public TCPClient() throws Exception {
 		int userEntry = getUserEntry();
@@ -41,7 +41,7 @@ public class TCPClient {
 	}
 
 	/**
-	 * Schickt dem Server eine Nachricht
+	 * Sends a message to the server
 	 */
 	public void sendMessage(String msg) throws Exception {
 		Socket socket = new Socket(HOST_NAME, TCPServer.TCP_PORT_NUMBER);
@@ -61,8 +61,7 @@ public class TCPClient {
 	}
 	
 	/**
-	 * Fordert den Nutzer zur Eingabe auf und
-	 * gibt diese zurück
+	 * Requests the user for input and return this
 	 */
 	private int getUserEntry() {
 		Scanner sc = new Scanner(System.in);

@@ -7,10 +7,10 @@ import de.htw.avs.util.Log;
 
 /**
  * @author: Sven Willrich, 534022
- * @author: ...
+ * @author: defo
  * Date: 10.04.2013
  * Classname: UDPServer.java
- * Veranstaltung: AVS Übung
+ * Veranstaltung: AVS Exercise
  */
 
 public class UDPServer {
@@ -18,7 +18,7 @@ public class UDPServer {
 	public final static int HOSTPORT = 4445;
 
 	/**
-	 * @param args
+	 * Instantiated a new UDPServer object
 	 */
 	public static void main(String[] args) {
 		try {
@@ -29,10 +29,10 @@ public class UDPServer {
 	}
 
 	/**
-	 * 
+	 * Starts a UDPServer
 	 */
 	public UDPServer() throws Exception {
-		Log.write("UDP SERVER START");
+		Log.write("UDP SERVER STARTS");
 		byte[] buf = new byte[265];
 		DatagramSocket socket = new DatagramSocket(HOSTPORT);
 		while (true) {

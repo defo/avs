@@ -13,7 +13,7 @@ import java.util.Random;
  * @author: defo
  * Date: 10.04.2013
  * Classname: ServerThread.java
- * Veranstaltung: AVS Übung
+ * Veranstaltung: AVS Exercise
  */
 
 public class ServerThread extends Thread {
@@ -21,7 +21,7 @@ public class ServerThread extends Thread {
 	private Socket socket;
 
 	/**
-	 * Startet den Thread
+	 * Stated the socket
 	 */
 	public ServerThread(Socket socket) {
 		this.socket = socket;
@@ -29,11 +29,10 @@ public class ServerThread extends Thread {
 		finish();
 	}
 
-	/** 
-	 * Serverthrad wird gestartet. 
-	 * Empfangene Zahl um 1 inkrementiert und es wird eine 
-	 * zufällige Zeichenkette vorangestellt. 
-	 * Als String wird es an den Client zurückgeschickt.
+	/**
+	 * Server thread will started
+	 * Increments the received integer with 1 and prepends a string.
+	 * It is returned to the client as string.
 	 */
 	@Override
 	public void run() {
@@ -58,7 +57,7 @@ public class ServerThread extends Thread {
 	}
 
 	/**
-	 * Socket wird geschlossen 
+	 * Socket will closed
 	 */
 	public void finish() {
 		try {
@@ -69,9 +68,8 @@ public class ServerThread extends Thread {
 	}
 
 	/**
-	 * Sendet eine zufaellige Zeichenkette mit einer 
-	 * Laenge zwischen 1 - 20 Zeichen zurueck
-	 * gefolgt von einer Zahl z + 1
+	 * Sends a random string with a length between 
+	 * 1 - 20 chars back and appends a integer z + 1
 	 */
 	private String getRandomString() {
 		Random r = new Random();
