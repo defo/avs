@@ -6,6 +6,7 @@ package de.htw.avs.util;
  * Date: 10.04.2013
  * Classname: Log.java
  * Veranstaltung: AVS Exercise
+ * Descritpion: This class is in charge of logging
  */
 
 public class Log {
@@ -28,7 +29,7 @@ public class Log {
 
 	public static void write(String msg) {
 		if (isEnabled()) {
-			System.out.println("LOG: " + msg);
+			System.out.println("*** LOG: " + msg + " ***");
 		}
 	}
 }

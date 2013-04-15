@@ -11,6 +11,7 @@ import de.htw.avs.util.Log;
  * Date: 09.04.2013
  * Classname: TCPServer.java
  * Veranstaltung: AVS Exercise
+ * Descritpion: This class is a TCP server, which responds to the client 
  */
 
 public class TCPServer {
@@ -28,7 +29,6 @@ public class TCPServer {
 	}
 
 	/**
-	 * Startet den Server und akzeptiert endlos neue Clients
 	 * Started the client and accept new clients without any border
 	 */
 	public TCPServer() throws Exception {
@@ -39,7 +39,7 @@ public class TCPServer {
 			Log.write("WAITING FOR SOCKET BINDING");
 			Socket socket = sSocket.accept();
 			Log.write("SOCKET BINDING FROM " + socket.getRemoteSocketAddress());
-			new ServerThread(socket);
+			((Thread)new ServerThread(socket)).start();
 			Log.write("DONE");
 		}
 	}

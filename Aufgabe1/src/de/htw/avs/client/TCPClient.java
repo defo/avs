@@ -12,12 +12,15 @@ import de.htw.avs.util.Log;
 
 /**
  * @author: Sven Willrich, 534022
- * @author: defo Date: 09.04.2013 Classname: TCPClient.java Veranstaltung: AVS
- *          Exercise
+ * @author: defo 
+ * Date: 09.04.2013 
+ * Classname: TCPClient.java 
+ * Veranstaltung: AVS Exercise
+ * Descritpion: This class represents the TCP client, who's sending TCP messages to the server
  */
 
 public class TCPClient {
-	public static final String HOST_NAME = "192.168.0.2";
+	public static final String HOST_NAME = "192.168.0.4";
 
 	/**
 	 * Instantiated a TCPClient object
@@ -44,6 +47,7 @@ public class TCPClient {
 
 	/**
 	 * Sends a message to the server
+	 * @param msg is the message, which should sent
 	 */
 	public void sendMessage(String msg) throws Exception {
 		Socket socket = new Socket(HOST_NAME, TCPServer.TCP_PORT_NUMBER);
@@ -64,6 +68,7 @@ public class TCPClient {
 
 	/**
 	 * Requests the user for input and return this
+	 * @return user entry
 	 */
 	private int getUserEntry() {
 		Scanner sc = new Scanner(System.in);
