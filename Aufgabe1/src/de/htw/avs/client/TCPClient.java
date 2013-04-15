@@ -3,6 +3,7 @@ package de.htw.avs.client;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.ConnectException;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -11,10 +12,8 @@ import de.htw.avs.util.Log;
 
 /**
  * @author: Sven Willrich, 534022
- * @author: defo 
- * Date: 09.04.2013 
- * Classname: TCPClient.java 
- * Veranstaltung: AVS Exercise
+ * @author: defo Date: 09.04.2013 Classname: TCPClient.java Veranstaltung: AVS
+ *          Exercise
  */
 
 public class TCPClient {
@@ -27,13 +26,16 @@ public class TCPClient {
 		try {
 			new TCPClient();
 		} catch (Exception e) {
-			e.printStackTrace();
+			if (e instanceof ConnectException) {
+				System.out.println("Failure: connection timeout");
+			} else {
+				e.printStackTrace();
+			}
 		}
 	}
 
 	/**
-	 * Recieved user inputs and 
-	 * send a message to the server
+	 * Recieved user inputs and send a message to the server
 	 */
 	public TCPClient() throws Exception {
 		int userEntry = getUserEntry();
@@ -59,7 +61,7 @@ public class TCPClient {
 
 		Log.write("DONE");
 	}
-	
+
 	/**
 	 * Requests the user for input and return this
 	 */
