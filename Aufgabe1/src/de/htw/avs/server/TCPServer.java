@@ -39,7 +39,7 @@ public class TCPServer {
 			Log.write("WAITING FOR SOCKET BINDING");
 			Socket socket = sSocket.accept();
 			Log.write("SOCKET BINDING FROM " + socket.getRemoteSocketAddress());
-			new ServerThread(socket);
+			((Thread)new ServerThread(socket)).start();
 			Log.write("DONE");
 		}
 	}

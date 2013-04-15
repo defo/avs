@@ -29,7 +29,7 @@ public class Log {
 
 	public static void write(String msg) {
 		if (isEnabled()) {
-			System.out.println("LOG: " + msg);
+			System.out.println("*** LOG: " + msg + " ***");
 		}
 	}
 }

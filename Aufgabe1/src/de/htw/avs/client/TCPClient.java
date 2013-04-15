@@ -19,7 +19,7 @@ import de.htw.avs.util.Log;
  */
 
 public class TCPClient {
-	public static final String HOST_NAME = "192.168.0.2";
+	public static final String HOST_NAME = "192.168.0.4";
 
 	/**
 	 * Instantiated a TCPClient object

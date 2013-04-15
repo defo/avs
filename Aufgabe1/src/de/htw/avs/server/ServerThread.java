@@ -1,12 +1,13 @@
 package de.htw.avs.server;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Random;
+
+import de.htw.avs.util.Log;
 
 /**
  * @author: Sven Willrich, 534022
@@ -26,18 +27,17 @@ public class ServerThread extends Thread {
 	 */
 	public ServerThread(Socket socket) {
 		this.socket = socket;
-		this.start();
-		finish();
 	}
 
 	/**
 	 * Server thread will started
-	 * Increments the received integer with 1 and prepends a string.
+	 * Increments the received integer by 1 and prepends a string.
 	 * It is returned to the client as string.
 	 */
 	@Override
 	public void run() {
 		try {
+			Log.write("THREAD STARTS");
 			BufferedReader reader = new BufferedReader(new InputStreamReader(
 					socket.getInputStream()));
 			PrintWriter writer = new PrintWriter(new OutputStreamWriter(
@@ -52,18 +52,8 @@ public class ServerThread extends Thread {
 			}
 			reader.close();
 			writer.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Socket will closed
-	 */
-	public void finish() {
-		try {
 			socket.close();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
