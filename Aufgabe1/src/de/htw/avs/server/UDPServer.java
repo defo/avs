@@ -11,6 +11,7 @@ import de.htw.avs.util.Log;
  * Date: 10.04.2013
  * Classname: UDPServer.java
  * Veranstaltung: AVS Exercise
+ * Descritpion: This class is a UDP server, which responds to the client
  */
 
 public class UDPServer {

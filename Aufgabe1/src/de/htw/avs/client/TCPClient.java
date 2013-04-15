@@ -15,6 +15,7 @@ import de.htw.avs.util.Log;
  * Date: 09.04.2013 
  * Classname: TCPClient.java 
  * Veranstaltung: AVS Exercise
+ * Descritpion: This class represents the TCP client, who's sending TCP messages to the server
  */
 
 public class TCPClient {
@@ -42,6 +43,7 @@ public class TCPClient {
 
 	/**
 	 * Sends a message to the server
+	 * @param msg is the message, which should sent
 	 */
 	public void sendMessage(String msg) throws Exception {
 		Socket socket = new Socket(HOST_NAME, TCPServer.TCP_PORT_NUMBER);
@@ -62,6 +64,7 @@ public class TCPClient {
 	
 	/**
 	 * Requests the user for input and return this
+	 * @return user entry
 	 */
 	private int getUserEntry() {
 		Scanner sc = new Scanner(System.in);

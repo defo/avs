@@ -15,6 +15,8 @@ import de.htw.avs.util.Log;
  * Date: 10.04.2013
  * Classname: UDPClient.java
  * Veranstaltung: AVS Exercise
+ * Descritpion: This class represents the UDP client, who's sending UDP messages to the server
+ * in regular intervals 
  */
 
 public class UDPClient extends Thread {
@@ -22,7 +24,7 @@ public class UDPClient extends Thread {
 	private final static String HOSTADDR = "192.168.0.2";
 	
 	public static void main(String[] args) {
-		new UDPClient().run();
+		new UDPClient().start();
 	}
 
 	/**

@@ -14,6 +14,7 @@ import java.util.Random;
  * Date: 10.04.2013
  * Classname: ServerThread.java
  * Veranstaltung: AVS Exercise
+ * Descritpion: This class is a server thread, which start a new thread with a socket instance
  */
 
 public class ServerThread extends Thread {
@@ -25,7 +26,7 @@ public class ServerThread extends Thread {
 	 */
 	public ServerThread(Socket socket) {
 		this.socket = socket;
-		this.run();
+		this.start();
 		finish();
 	}
 
@@ -69,14 +70,14 @@ public class ServerThread extends Thread {
 
 	/**
 	 * Sends a random string with a length between 
-	 * 1 - 20 chars back and appends a integer z + 1
+	 * 1 - 20 chars back
+	 * @return the random string
 	 */
 	private String getRandomString() {
 		Random r = new Random();
 		String randomString = "";
 		for (int i = 0; i < (1 + r.nextInt(19)); i++) {
-			int charInt = r.nextInt(24);
-			randomString += (char) (97 + charInt);
+			randomString += (char) (33 + r.nextInt(93));
 		}
 		return randomString;
 	}
