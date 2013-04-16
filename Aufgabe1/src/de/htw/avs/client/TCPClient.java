@@ -12,11 +12,12 @@ import de.htw.avs.util.Log;
 
 /**
  * @author: Sven Willrich, 534022
- * @author: defo 
+ * @author: defo Bienvenue,534195
  * Date: 09.04.2013 
  * Classname: TCPClient.java 
  * Veranstaltung: AVS Exercise
- * Descritpion: This class represents the TCP client, who's sending TCP messages to the server
+ * Descritpion: This class represents the TCP client, who's sending TCP messages(Random number) 
+ * to the server
  */
 
 public class TCPClient {
