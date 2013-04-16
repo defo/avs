@@ -7,7 +7,7 @@ import de.htw.avs.util.Log;
 
 /**
  * @author: Sven Willrich, 534022
- * @author: defo
+ * @author: defo Bienvenue,534195
  * Date: 10.04.2013
  * Classname: UDPServer.java
  * Veranstaltung: AVS Exercise
