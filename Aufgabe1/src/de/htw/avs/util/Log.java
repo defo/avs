@@ -2,7 +2,7 @@ package de.htw.avs.util;
 
 /**
  * @author: Sven Willrich, 534022
- * @author: defo
+ * @author: defo Bienvenue,534195
  * Date: 10.04.2013
  * Classname: Log.java
  * Veranstaltung: AVS Exercise
@@ -26,6 +26,9 @@ public class Log {
 	public static boolean isEnabled() {
 		return isEnabled;
 	}
+	/**
+	 * @param msg the message
+	 * /
 
 	public static void write(String msg) {
 		if (isEnabled()) {
