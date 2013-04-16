@@ -11,7 +11,7 @@ import de.htw.avs.util.Log;
 
 /**
  * @author: Sven Willrich, 534022
- * @author: defo
+ * @author: defo Bienvenue ,534195
  * Date: 10.04.2013
  * Classname: ServerThread.java
  * Veranstaltung: AVS Exercise
@@ -24,6 +24,7 @@ public class ServerThread extends Thread {
 
 	/**
 	 * Stated the socket
+	 * @param the socket
 	 */
 	public ServerThread(Socket socket) {
 		this.socket = socket;
